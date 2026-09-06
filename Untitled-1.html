@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daily Reminder</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🔔 Daily Reminder</h1>
+
+        <div class="form">
+
+            <label>Task</label>
+            <input 
+                type="text" 
+                id="taskInput" 
+                placeholder="e.g. Study DSA"
+            >
+
+            <label>Start Time</label>
+            <input 
+                type="time" 
+                id="startTime"
+            >
+
+            <label>End Time</label>
+            <input 
+                type="time" 
+                id="endTime"
+            >
+
+            <label>Remind me every</label>
+
+            <select id="interval">
+                <option value="5">5 minutes</option>
+                <option value="15">15 minutes</option>
+                <option value="30" selected>30 minutes</option>
+                <option value="60">1 hour</option>
+                <option value="120">2 hours</option>
+            </select>
+
+            <label>Repeat</label>
+
+            <select id="repeat">
+                <option value="daily">Every day</option>
+                <option value="once">Only today</option>
+            </select>
+
+            <button onclick="addReminder()">
+                ADD REMINDER
+            </button>
+
+        </div>
+
+
+        <h2>My Reminders</h2>
+
+        <div id="reminderList"></div>
+
+    </div>
+
+
+    <script src="Script.js"></script>
+    <script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+            navigator.serviceWorker.register("service-worker.js")
+                .then(function() {
+                    console.log("Service Worker registered");
+                })
+                .catch(function(error) {
+                    console.log("Service Worker error:", error);
+                });
+        });
+    }
+</script>
+
+</body>
+</html>

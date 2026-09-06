@@ -1,0 +1,8 @@
+{
+    "name": "Daily Reminder",
+    "short_name": "Reminder",
+    "start_url": "./Untitled-1.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#222222"
+}
